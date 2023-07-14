@@ -5,7 +5,7 @@ const input = document.querySelector('input');
 const textarea = document.querySelector('textarea');
 //  input.addEventListener("input", throttle(storageFormData, 500));
 
-form.addEventListener("submit", onFormSubmit);
+form.addEventListener("submit", throtlle(onFormSubmit, 500));
 // form.addEventListener('input', throttle(storageFormData, 500));
 // проверяем состояние хранилища
 
@@ -19,7 +19,7 @@ form.addEventListener("submit", onFormSubmit);
     console.log(storageArr.message);
 if (storageArr) {
    
-              input.setAttribute('value', storageArr.email);
+        input.setAttribute('value', storageArr.email);
         // console.log(textarea);
     textarea.innerHTML = `${storageArr.message}`;
   
