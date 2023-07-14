@@ -18,6 +18,10 @@ if (storageArr) {
     input.setAttribute('value', storageArr.email);
     // console.log(textarea);
     textarea.innerHTML = `${storageArr.message}`;
+//    Чистим хранилище
+       localStorage.removeItem('feedback-form-state');
+ console.log(storageArr);
+
 };
     
 
@@ -29,29 +33,30 @@ function onFormSubmit(event) {
      = event.currentTarget.elements;
     console.log(email.value, message.value);
 
+    const messageAlert = "Please fill in all the fields!";
+
+     if (email.value === "" || message.value === "") {
+         return alert(messageAlert);
+         
+    };
     
     const arrayForm = {
         email: email.value,
         message: message.value
     };
 
-
     console.log(' localStorage:', arrayForm);
 
     localStorage.setItem
         (LOCAL_KEY, JSON.stringify(arrayForm));
     
+    //    Чистим поля формы
     input.removeAttribute("value");
     console.log('Email delete!', email.value);
-   
-
     textarea.innerHTML = '';
      console.log('Messege delete!', email.value);
-    //  Чистим хранилище
-    //  localStorage.removeItem('feedback-form-state');
-    
-    
+   
+
 };
- 
 
 

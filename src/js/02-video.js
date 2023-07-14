@@ -15,12 +15,12 @@ const iframe = document.querySelector('iframe');
  // ===== отслеживать событие timeupdate====
 const onPlay = function (data) {
     // ==Сохраняй время воспроизведения в локальное хранилище.
-     localStorage.setItem("videoplayer-current-time", JSON.stringify(data.seconds));  
+    localStorage.setItem("videoplayer-current-time", JSON.stringify(data.seconds));
 
     console.log("videoplayer-current-time:", data.seconds, " seconds");
     console.log(data.seconds);
 
-}
+};
     
 player.on('timeupdate',throttle(onPlay, 1000 ));
 
@@ -29,18 +29,8 @@ console.log(currentTime);
 
 // ====возобновить воспроизведение с сохраненной позиции.
   
-player.setCurrentTime(currentTime).then(function(seconds) {
-    // seconds = the actual time that the player seeked to
-}).catch(function(error) {
-    switch (error.name) {
-        case 'RangeError':
-            // the time was less than 0 or greater than the video’s duration
-            break;
+player.setCurrentTime(currentTime);
 
-        default:
-            // some other error occurred
-            break;
-    }
-});
+
 
 
