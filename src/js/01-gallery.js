@@ -6,4 +6,4 @@ import "simplelightbox/dist/simple-lightbox.min.css"
 
 console.log(galleryItems);
 
- import {string} from '../../../goit-js-hw-07/js/02-lightbox';
+//  import {string} from '../../../goit-js-hw-07/js/02-lightbox';
