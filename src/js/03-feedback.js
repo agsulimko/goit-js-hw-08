@@ -46,14 +46,6 @@ form.addEventListener('submit', onFormSubmit);
 
 
 
-/
-
-
-
-
-
-
-
 
 
 // const form = document.querySelector(".feedback-form");
