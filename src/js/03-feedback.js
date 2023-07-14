@@ -5,37 +5,41 @@ const input = document.querySelector('input');
 const textarea = document.querySelector('textarea');
 //  input.addEventListener("input", throttle(storageFormData, 500));
 
-form.addEventListener("submit", throtlle(onFormSubmit, 500));
+form.addEventListener("submit", throttle(onFormSubmit, 500));
 // form.addEventListener('input', throttle(storageFormData, 500));
 // проверяем состояние хранилища
 
 // const storage = localStorage.getItem(LOCAL_KEY);
 // console.log(storage);
+  //    Чистим хранилище
+    function removeLocalStorage() {
+            if (localStorage.getItem(LOCAL_KEY)){
+            localStorage.removeItem(LOCAL_KEY);
+            console.log('хранилище очищено!', localStorage.getItem(LOCAL_KEY));
+            return;
+    };
+};
 
     const storageArr = JSON
         .parse(localStorage.getItem(LOCAL_KEY)) ?? [];
     console.log(storageArr);
     console.log(storageArr.email);
     console.log(storageArr.message);
-if (storageArr) {
-   
+if (localStorage.getItem(LOCAL_KEY)) {
+    console.log(storageArr);
         input.setAttribute('value', storageArr.email);
         // console.log(textarea);
     textarea.innerHTML = `${storageArr.message}`;
   
     
-      
+       
      
 
-        //    Чистим хранилище
-    function removeLocalStorage() {
-            if (localStorage.getItem(LOCAL_KEY)){
-            localStorage.removeItem(LOCAL_KEY);
-            console.log('хранилище очищено!', localStorage.getItem(LOCAL_KEY));
-            return;
-        };}
-          removeLocalStorage();
- }; 
+      
+         
+};
+   
+
     
 function onFormSubmit(event) {
     event.preventDefault();
@@ -69,8 +73,15 @@ function onFormSubmit(event) {
         console.log('Email delete!', email.value);
         textarea.innerHTML = '';
         console.log('Messege delete!', email.value);
+        if (!localStorage.getItem(LOCAL_KEY)) {
+   removeLocalStorage();
+};
         return;
     }
 };
 
+//  textarea.innerHTML = ``;
+//     input.setAttribute('value', '');
+    
 
+ 
