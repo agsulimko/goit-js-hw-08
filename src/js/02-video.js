@@ -20,11 +20,8 @@ const onPlay = function (data) {
     console.log("videoplayer-current-time:", data.seconds, " seconds");
     console.log(data.seconds);
 
-    
- 
 }
     
- 
 player.on('timeupdate',throttle(onPlay, 1000 ));
 
 const currentTime = localStorage.getItem("videoplayer-current-time");
