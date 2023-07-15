@@ -29,7 +29,7 @@ console.log(currentTime);
 
 // ====возобновить воспроизведение с сохраненной позиции.
   
-player.setCurrentTime(currentTime);
+player.setCurrentTime(currentTime||0);
 
 
 
