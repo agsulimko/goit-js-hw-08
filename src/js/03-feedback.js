@@ -3,25 +3,25 @@ import throttle from 'lodash.throttle';
 const LOCAL_KEY = 'feedback-form-state';
 const form = document.querySelector(".feedback-form");
 handlerFillForm();
-
+// перезаписываем из  хранилища данные 
  function onFormInput(event) { 
-     let formInfa = localStorage.getItem(LOCAL_KEY);
-    //  console.log(formInfa);
-     formInfa = formInfa ? JSON.parse(formInfa) : {};
-     formInfa[event.target.name] = event.target.value;
-     console.log(formInfa[event.target.name]);
+     let formData = localStorage.getItem(LOCAL_KEY);
+    //  console.log(formData);
+     formData = formData ? JSON.parse(formData) : {};
+     formData[event.target.name] = event.target.value;
+     console.log(formData[event.target.name]);
       console.log(event.target.name);
-     localStorage.setItem(LOCAL_KEY, JSON.stringify(formInfa));
+     localStorage.setItem(LOCAL_KEY, JSON.stringify(formData));
  };
 // проверяем хранилище 
 function handlerFillForm() {
-    let saveInfa = localStorage.getItem(LOCAL_KEY);
-    console.log(saveInfa);
-    if (saveInfa) {
-        saveInfa = JSON.parse(saveInfa)
-        console.dir(saveInfa);  
-        const arraySaveInfa = Object.entries(saveInfa);
-        arraySaveInfa.forEach(function([number, index]) {
+    let saveData = localStorage.getItem(LOCAL_KEY);
+    console.log(saveData);
+    if (saveData) {
+        saveData = JSON.parse(saveData)
+        console.dir(saveData);  
+        const arraySaveData = Object.entries(saveData);
+        arraySaveData.forEach(function([number, index]) {
              form.elements[number].value = index || '';
             console.log(form.elements[number].value);
            
