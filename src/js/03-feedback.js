@@ -8,9 +8,11 @@ handlerFillForm();
      let formData = localStorage.getItem(LOCAL_KEY);
     //  console.log(formData);
      formData = formData ? JSON.parse(formData) : {};
+    //   console.log(formData);
      formData[event.target.name] = event.target.value;
-     console.log(formData[event.target.name]);
-      console.log(event.target.name);
+    //  console.log(formData[event.target.name]);
+    //   console.log(event.target.name);
+     
      localStorage.setItem(LOCAL_KEY, JSON.stringify(formData));
  };
 // проверяем хранилище 
@@ -19,11 +21,11 @@ function handlerFillForm() {
     console.log(saveData);
     if (saveData) {
         saveData = JSON.parse(saveData)
-        console.dir(saveData);  
+        // console.dir(saveData);  
         const arraySaveData = Object.entries(saveData);
         arraySaveData.forEach(function([number, index]) {
              form.elements[number].value = index || '';
-            console.log(form.elements[number].value);
+            // console.log(form.elements[number].value);
            
         });
     };
