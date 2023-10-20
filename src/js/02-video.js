@@ -17,7 +17,7 @@ const onPlay = function (data) {
     // ==Сохраняй время воспроизведения в локальное хранилище.
     localStorage.setItem("videoplayer-current-time", JSON.stringify(data.seconds));
 
-    console.log("videoplayer-current-time:", data.seconds, " seconds");
+    console.log("videoplayer-current-time:", data.seconds, "seconds");
     console.log(data.seconds);
 
 };
